@@ -7,7 +7,7 @@
 - 一台 Mac,有安裝 Claude Code。
 - 人在中研院網路上(有線、院內 Wi-Fi 或 VPN)。
 - 這台 Mac 的管理員帳號(新增印表機要輸入一次密碼)。
-- 這是 private repo。作者邀請你之後,先到 GitHub 接受邀請,並在 Mac 上用 `gh auth login` 登入,Claude 才讀得到。
+- 這個 repo 目前是公開的,可以直接 clone。作者之後可能改回 private,所以請讓 Claude 先 clone 一份保留在本機(預設放 `~/.claude/skills/sinica-econ-printers`)。
 
 ## 怎麼用
 
@@ -29,6 +29,7 @@
 
 | 檔案 | 內容 |
 | --- | --- |
+| `CLAUDE.md` | 給 Claude Code 的第一份指示:先 clone 保留,再照 SKILL.md |
 | `SKILL.md` | 完整設定流程與問題清單 |
 | `printers.md` | 五台印表機的位置、位址、型號、色彩、雙面、建議名稱 |
 | `scripts/setup_template.sh` | 一次性設定腳本範本(執行完自刪) |
