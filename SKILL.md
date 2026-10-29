@@ -59,9 +59,13 @@ description: 在 Mac 上一次設定中研院經濟所的五台印表機(電腦�
 ### 步驟 4:產生一次性腳本
 
 1. 以 `scripts/setup_template.sh` 為範本,把 ADD、RENAME、REMOVE 區塊依使用者的回答填好。`DUPLEX` 依使用者選擇填。
-2. 腳本存到 `mktemp -d` 建立的暫存資料夾,`chmod 700`,檔名 `setup_printers.sh`。腳本最後有 `rm "$0"` 自刪,不要拿掉。
-3. 把腳本**完整內容**貼給使用者看。
-4. 請使用者**自己開 Terminal.app**,執行 `bash <腳本完整路徑>`,輸入一次 sudo 密碼。不要用 Claude Code 的 `!` 模式(密碼輸入不穩定)。
+2. 腳本存到使用者的**下載資料夾**(`~/Downloads/setup_printers.sh`),使用者找得到、也方便在終端機 `cd` 過去。如果使用者習慣放桌面,就放 `~/Desktop`。
+3. 腳本結尾**必須自刪**:範本最上面的 `trap 'rm -f "$0"' EXIT` 不要拿掉,它在腳本結束時(成功、失敗、按 Ctrl-C 都一樣)把自己刪掉,不留在下載資料夾。
+4. 把腳本**完整內容**貼給使用者看。
+5. 請使用者**自己開 Terminal.app**,輸入下面這行(照放的位置調整):
+   `cd ~/Downloads && bash setup_printers.sh`
+   輸入一次 sudo 密碼就會跑完,跑完腳本自己消失。不要用 Claude Code 的 `!` 模式(密碼輸入不穩定)。
+6. 如果使用者說腳本還在(沒刪掉,例如中途被中斷以外的原因),幫他確認 `~/Downloads/setup_printers.sh` 是否仍存在,存在就請他移到垃圾桶。
 
 ### 步驟 5:驗證與使用者層級設定
 

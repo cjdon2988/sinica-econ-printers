@@ -1,10 +1,13 @@
 #!/bin/bash
 # 中研院經濟所印表機設定腳本範本
 # 使用方式:Claude 依使用者的回答,把底下 ADD / RENAME / REMOVE 區塊填好,存成一支一次性腳本,
-# 請使用者在終端機執行一次(輸入一次 sudo 密碼)。執行完會自動刪除自己。
+# 請使用者在終端機執行一次(輸入一次 sudo 密碼)。執行結束(成功、失敗或按 Ctrl-C 中斷)都會自動刪除自己。
 # 這支腳本只改印表機設定,不碰網路、電源、Tailscale 或其他系統設定。
 
 set -u
+
+# 不論怎麼結束,都把這支腳本自己刪掉
+trap 'rm -f "$0"' EXIT
 
 # 預設雙面:one-sided(單面)、two-sided-long-edge(長邊翻頁)、two-sided-short-edge(短邊翻頁)
 DUPLEX="two-sided-long-edge"
@@ -37,4 +40,3 @@ remove() {
 echo "---- 目前印表機 ----"
 lpstat -p -d
 
-rm "$0"
