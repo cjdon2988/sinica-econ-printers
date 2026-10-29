@@ -5,7 +5,7 @@
 ## 你需要
 
 - 一台 Mac,有安裝 Claude Code。
-- 人在中研院網路上(有線、院內 Wi-Fi 或 VPN)。
+- 人在中研院網路上:有線,或院內 Wi-Fi「IEAS Secure」,或 VPN。
 - 這台 Mac 的管理員帳號(新增印表機要輸入一次密碼)。
 - 這個 repo 目前是公開的,可以直接 clone。作者之後可能改回 private,所以請讓 Claude 先 clone 一份保留在本機(預設放 `~/.claude/skills/sinica-econ-printers`)。
 
